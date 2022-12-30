@@ -20,7 +20,7 @@ class UpdateResource extends Resource
 {
     protected static ?string $model = Update::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
     public static function form(Form $form): Form
     {

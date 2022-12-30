@@ -3,10 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Closure;
-use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -17,11 +15,8 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Actions\CreateAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class PostResource extends Resource
@@ -45,7 +40,7 @@ class PostResource extends Resource
                 Select::make("user_id")->relationship("user", "name")->label("Author")->default(auth()->id()),
                 TextInput::make("slug")->disabled(),
                 Textarea::make("summary")->required(),
-                RichEditor::make("detail")->required(),
+                RichEditor::make("detail")->required()->columnSpanFull(),
                 Toggle::make("is_published")->default(false)->required(),
             ]);
     }
