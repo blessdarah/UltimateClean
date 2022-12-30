@@ -3,10 +3,9 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TeamMemberResource\Pages;
-use App\Filament\Resources\TeamMemberResource\RelationManagers;
 use App\Models\TeamMember;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
@@ -14,8 +13,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TeamMemberResource extends Resource
 {
@@ -27,6 +24,11 @@ class TeamMemberResource extends Resource
     {
         return $form
             ->schema([
+                FileUpload::make("image")
+                    ->label("Profile image")
+                    ->image()
+                    ->avatar()
+                    ->columnSpanFull(),
                 TextInput::make("name")->required(),
                 TextInput::make("nickname"),
                 TextInput::make("position"),
@@ -35,7 +37,7 @@ class TeamMemberResource extends Resource
                 TextInput::make("telephone")->tel(),
                 TextInput::make("gender"),
                 DatePicker::make("dob")->label("Date of birth"),
-                RichEditor::make("about")->label("About info")
+                RichEditor::make("about")->label("About info")->columnSpanFull()
             ]);
     }
 

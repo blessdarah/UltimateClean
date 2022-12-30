@@ -29,7 +29,7 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make("image")->image()->label("Post cover image"),
+                FileUpload::make("image")->image()->label("Post cover image")->columnSpanFull(),
                 TextInput::make("title")
                     ->reactive()
                     ->afterStateUpdated(

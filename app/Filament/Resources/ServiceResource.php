@@ -36,8 +36,8 @@ class ServiceResource extends Resource
                     )->required(),
                 TextInput::make("slug")->disabled(),
                 FileUpload::make("image")->image()->label("Service image"),
-                Textarea::make("summary"),
-                RichEditor::make("description"),
+                Textarea::make("summary")->required(),
+                RichEditor::make("description")->required()->columnSpanFull(),
             ]);
     }
 

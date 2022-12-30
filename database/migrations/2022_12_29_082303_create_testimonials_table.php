@@ -14,6 +14,7 @@ return new class () extends Migration {
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string("image")->nullable();
             $table->mediumText("message");
             $table->string("author_name");
             $table->string("author_position")->nullable();

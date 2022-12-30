@@ -27,10 +27,11 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make("author_name")->label("author"),
+                Forms\Components\FileUpload::make("image")->image()->avatar(),
+                TextInput::make("author_name")->label("author")->required(),
                 TextInput::make("author_company")->label("works at"),
                 TextInput::make("author_position")->label("Position"),
-                Textarea::make("message")->label("Testimonial")
+                Textarea::make("message")->label("Testimonial")->required()
             ]);
     }
 
@@ -38,13 +39,25 @@ class TestimonialResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('index')->getStateUsing(static function (stdClass $rowLoop): string {
-                    return (string) $rowLoop->iteration;
-                }),
-                TextColumn::make("author_name")->label("author")->sortable()->searchable(),
-                TextColumn::make("author_company")->label("works at")->sortable()->searchable(),
-                TextColumn::make("author_position")->label("Position")->limit(30)->sortable()->searchable(),
-                TextColumn::make("message")->label("Testimonial")->limit(30),
+                Tables\Columns\ImageColumn::make("image")
+                    ->width(40)
+                    ->height(40),
+                TextColumn::make("author_name")
+                    ->label("author")
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make("author_company")
+                    ->label("works at")
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make("author_position")
+                    ->label("Position")
+                    ->limit(30)
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make("message")
+                    ->label("Testimonial")
+                    ->limit(30),
             ])
             ->filters([
                 //

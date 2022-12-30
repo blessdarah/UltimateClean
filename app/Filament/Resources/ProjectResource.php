@@ -6,6 +6,7 @@ use App\Filament\Resources\ProjectResource\Pages;
 use App\Models\Project;
 use Closure;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -27,6 +28,10 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
+                FileUpload::make("image")
+                    ->label("Project cover image")
+                    ->required()
+                    ->columnSpanFull(),
                 TextInput::make("name")
                     ->reactive()
                     ->afterStateUpdated(
@@ -36,9 +41,9 @@ class ProjectResource extends Resource
                     )->required(),
                 TextInput::make("slug")->disabled(),
                 Textarea::make("description"),
-                RichEditor::make("detail")->required(),
                 DatePicker::make("start_date"),
                 DatePicker::make("end_date"),
+                RichEditor::make("detail")->required()->columnSpanFull(),
             ]);
     }
 
