@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TestimonialResource\Pages;
-use App\Filament\Resources\TestimonialResource\RelationManagers;
 use App\Models\Testimonial;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
@@ -13,13 +12,12 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use stdClass;
 
 class TestimonialResource extends Resource
 {
     protected static ?string $model = Testimonial::class;
+
+    protected static ?string $navigationGroup = "feedback";
 
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
 

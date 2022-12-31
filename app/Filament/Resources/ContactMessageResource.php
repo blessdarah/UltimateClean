@@ -16,6 +16,8 @@ class ContactMessageResource extends Resource
 {
     protected static ?string $model = ContactMessage::class;
 
+    protected static ?string $navigationGroup = "feedback";
+
     protected static ?string $navigationIcon = 'heroicon-o-mail-open';
 
     public static function form(Form $form): Form

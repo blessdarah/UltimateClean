@@ -20,6 +20,10 @@ class UpdateResource extends Resource
 {
     protected static ?string $model = Update::class;
 
+    protected static ?string $navigationGroup = 'cms';
+
+    protected static ?string $recordTitleAttribute = "name";
+
     protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
     public static function form(Form $form): Form
