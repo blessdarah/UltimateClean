@@ -11,6 +11,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
 class TestimonialResource extends Resource
@@ -37,9 +38,10 @@ class TestimonialResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make("image")
+                ImageColumn::make("image")
                     ->width(40)
-                    ->height(40),
+                    ->height(40)
+                    ->circular(),
                 TextColumn::make("author_name")
                     ->label("author")
                     ->sortable()

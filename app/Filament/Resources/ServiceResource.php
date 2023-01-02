@@ -49,12 +49,9 @@ class ServiceResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('index')->getStateUsing(static function (stdClass $rowLoop): string {
-                    return (string) $rowLoop->iteration;
-                }),
                 TextColumn::make("name")->limit(30)->sortable()->searchable(),
                 TextColumn::make("summary")->limit(30)->sortable()->searchable(),
-            ])
+            ])->defaultSort("created_at", "desc")
             ->filters([
                 //
             ])

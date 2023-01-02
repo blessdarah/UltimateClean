@@ -47,10 +47,7 @@ class UpdateResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('index')->getStateUsing(static function (stdClass $rowLoop): string {
-                    return (string) $rowLoop->iteration;
-                }),
-               TextColumn::make("name")->limit(25)->sortable()->searchable(),
+              TextColumn::make("name")->limit(25)->sortable()->searchable(),
                TextColumn::make("description")->limit(30)->sortable()->searchable(),
             ])
             ->filters([

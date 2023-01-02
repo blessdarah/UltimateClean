@@ -20,9 +20,10 @@ use stdClass;
 class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
-    protected static ?string $navigationGroup = 'cms';
-    protected static ?string $recordTitleAttribute = "name";
 
+    protected static ?string $navigationGroup = 'cms';
+
+    protected static ?string $recordTitleAttribute = "name";
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
 

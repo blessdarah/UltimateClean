@@ -20,7 +20,6 @@ class FaqResource extends Resource
 
     protected static ?string $navigationGroup = "cms";
 
-
     protected static ?string $navigationIcon = 'heroicon-o-chat';
 
     public static function form(Form $form): Form
