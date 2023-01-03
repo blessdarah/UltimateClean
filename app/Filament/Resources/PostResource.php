@@ -6,6 +6,7 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Closure;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -46,6 +47,10 @@ class PostResource extends Resource
                 Textarea::make("summary")->required(),
                 RichEditor::make("detail")->required()->columnSpanFull(),
                 Toggle::make("is_published")->default(false)->required(),
+
+                /*TODO: Work on the category 1 - many morph relationship */
+                // Select::make("category")->relationship("category", "name")->searchable(),
+                MultiSelect::make("tag")->label("Tags")->searchable()->relationship("tags", "name")->preload()
             ]);
     }
 
