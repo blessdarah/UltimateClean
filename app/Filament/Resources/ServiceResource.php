@@ -7,6 +7,7 @@ use App\Models\Service;
 use Closure;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Form;
@@ -42,6 +43,8 @@ class ServiceResource extends Resource
                 FileUpload::make("image")->image()->label("Service image"),
                 Textarea::make("summary")->required(),
                 RichEditor::make("description")->required()->columnSpanFull(),
+                Select::make("category_id")->relationship("category", "name")
+                ->preload()->searchable()
             ]);
     }
 

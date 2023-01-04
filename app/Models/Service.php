@@ -14,9 +14,9 @@ class Service extends Model
 
     protected $fillable = ["name", "image", "slug", "summary", "description"];
 
-    public function category(): MorphOne
+    public function category(): BelongsTo
     {
-        return $this->morphOne(Category::class, "categorable");
+        return $this->belongsTo(Category::class);
     }
 
     public function tags(): MorphToMany

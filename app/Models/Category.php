@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Category extends Model
 {
@@ -12,18 +15,13 @@ class Category extends Model
 
     protected $fillable = ["name"];
 
-    public function categorable()
+    public function services(): HasMany
     {
-        return $this->morphTo();
+        return $this->hasMany(Service::class);
     }
 
-    public function services(): MorphMany
+    public function posts(): HasMany
     {
-        return $this->morphOne(Service::class, "categorable");
+        return $this->hasMany(Post::class);
     }
-
-    // public function posts(): MorphMany
-    // {
-    //     return $this->morphMany(Post::class, "categorable");
-    // }
 }

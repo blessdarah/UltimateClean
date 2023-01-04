@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Closure;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\RichEditor;
@@ -49,7 +51,7 @@ class PostResource extends Resource
                 Toggle::make("is_published")->default(false)->required(),
 
                 /*TODO: Work on the category 1 - many morph relationship */
-                // Select::make("category")->relationship("category", "name")->searchable(),
+                Select::make("category")->relationship("category", "name")->searchable(),
                 MultiSelect::make("tag")->label("Tags")->searchable()->relationship("tags", "name")->preload()
             ]);
     }

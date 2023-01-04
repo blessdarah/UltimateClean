@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -11,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Validation\Rules\Password;
+use Spatie\Permission\Models\Role;
 
 class UserResource extends Resource
 {
@@ -24,6 +26,7 @@ class UserResource extends Resource
             ->schema([
                 TextInput::make("name")->required(),
                 TextInput::make("email")->email()->required()->unique(),
+                Select::make("role_id")->options(Role::latest()->get()),
                 TextInput::make("password")->password()->hiddenOn("edit")->required()->rule(Password::default()),
             ]);
     }

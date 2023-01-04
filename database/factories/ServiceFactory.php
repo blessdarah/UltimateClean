@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,10 +18,11 @@ class ServiceFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->sentence,
-            "slug" => $this->faker->slug,
-            "summary" => $this->faker->sentence,
-            "description" => $this->faker->text
+            "name" => fake()->sentence,
+            "slug" => fake()->slug,
+            "summary" => fake()->sentence,
+            "description" => fake()->text,
+            "category_id" => Category::inRandomOrder()->first()->id
         ];
     }
 }
