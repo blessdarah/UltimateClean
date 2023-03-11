@@ -20,6 +20,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Widgets\Widget;
 use Illuminate\Support\Str;
 
 class PostResource extends Resource
@@ -82,6 +83,13 @@ class PostResource extends Resource
             //
         ];
     }
+
+public static function getWidgets(): array
+{
+    return [
+        PostResource\Widgets\PublishedPostsWidget::class,
+    ];
+}
 
     public static function getPages(): array
     {

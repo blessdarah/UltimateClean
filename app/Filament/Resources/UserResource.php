@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
@@ -25,8 +26,8 @@ class UserResource extends Resource
         return $form
             ->schema([
                 TextInput::make("name")->required(),
-                TextInput::make("email")->email()->required()->unique(),
-                Select::make("role_id")->options(Role::latest()->get()),
+                TextInput::make("email")->email()->required()->unique(ignoreRecord: true),
+                Select::make("role_id")->options(Role::all()->pluck("name", "id"))->label("Role"),
                 TextInput::make("password")->password()->hiddenOn("edit")->required()->rule(Password::default()),
             ]);
     }
@@ -37,6 +38,7 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make("name")->sortable()->searchable(),
                 TextColumn::make("email")->sortable()->searchable(),
+                BadgeColumn::make("role.name")->sortable()->searchable(),
                 TextColumn::make("created_at")->sortable()->date("d/m/Y h:i a")
             ])
             ->filters([
