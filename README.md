@@ -21,3 +21,4 @@ Laravel filament dashboard template application for all dashboard management.
 -   [ ] Import files into tables [Filament import](https://filamentphp.com/plugins/import)
 -   [ ] Editor Js integration [Filament editor Js](https://filamentphp.com/plugins/editorjs)
 -   [ ] Excel export integration [Filament export](https://filamentphp.com/plugins/pxlrbt-excel)
+-   [ ] [Another excel export](https://filamentphp.com/plugins/alperenersoy-export)

@@ -8,6 +8,7 @@ use Closure;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Form;
@@ -44,6 +45,9 @@ class ProjectResource extends Resource
                         }
                     )->required(),
                 TextInput::make("slug")->disabled(),
+                Select::make("status")->options([
+                    "Published", "Draft", "Archived"
+                ]),
                 Textarea::make("description"),
                 DatePicker::make("start_date"),
                 DatePicker::make("end_date"),

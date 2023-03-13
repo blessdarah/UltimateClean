@@ -6,7 +6,11 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Closure;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Fieldset;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\RichEditor;
@@ -35,7 +39,8 @@ class PostResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
+        return
+            $form
             ->schema([
                 FileUpload::make("image")->image()->label("Post cover image")->columnSpanFull(),
                 TextInput::make("title")
@@ -61,19 +66,27 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("user_id")->label("author")->sortable()->searchable(),
+                TextColumn::make("user.name")->label("author")->sortable()->searchable(),
                 TextColumn::make("title")->limit(30)->sortable()->searchable(),
                 TextColumn::make("summary")->limit(30)->sortable()->searchable(),
-                ToggleColumn::make("is_published")->label("Published")
+                BooleanColumn::make("is_published")->label("Published")
             ])
             ->filters([
-                //
+                // Filter::make("is_published")->label("Published"),
+                SelectFilter::make('Post status')
+                ->options([
+                    1 => 'Published',
+                    0 => 'Not published',
+                ])
+                ->attribute('is_published')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                    Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
+                ExportBulkAction::make(),
+                FilamentExportBulkAction::make('export')
             ]);
     }
 

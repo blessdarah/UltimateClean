@@ -9,13 +9,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "alperenersoy/filament-export": "^0.2.8",
         "bezhansalleh/filament-shield": "^2.3",
         "filament/filament": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "ibrahim-bedir/filament-dynamic-settings-page": "dev-main",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "psr/simple-cache": "^2.0",
+        "pxlrbt/filament-excel": "^1.1"
     },
     "require-dev": {
         "doctrine/dbal": "^3.5",
