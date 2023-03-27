@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TeamMemberSeeder::class,
             PostSeeder::class,
             ContactMessageSeeder::class,
+            ClientSeeder::class
         ]);
     }
 }
