@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
@@ -25,10 +27,14 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make("name")->required(),
-                TextInput::make("email")->email()->required()->unique(ignoreRecord: true),
-                Select::make("role_id")->options(Role::all()->pluck("name", "id"))->label("Role"),
-                TextInput::make("password")->password()->hiddenOn("edit")->required()->rule(Password::default()),
+                Card::make()
+                ->schema([
+                    TextInput::make("name")->required(),
+                    TextInput::make("email")->email()->required()->unique(ignoreRecord: true),
+                    // Select::make("roles")->options(Role::all()->pluck("name", 'id'))->searchable()->preload(),
+                    CheckboxList::make("roles")->relationship("roles", 'name'),
+                    TextInput::make("password")->password()->hiddenOn("edit")->required()->rule(Password::default()),
+                ])
             ]);
     }
 
@@ -38,8 +44,7 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make("name")->sortable()->searchable(),
                 TextColumn::make("email")->sortable()->searchable(),
-                BadgeColumn::make("role.name")->sortable()->searchable(),
-                TextColumn::make("created_at")->sortable()->date("d/m/Y h:i a")
+                BadgeColumn::make("roles.name")->sortable()->searchable(),
             ])
             ->filters([
                 //
