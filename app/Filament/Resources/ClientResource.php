@@ -34,6 +34,7 @@ class ClientResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('website')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone_number')
                     ->tel()
