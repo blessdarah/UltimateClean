@@ -42,7 +42,7 @@ class PostResource extends Resource
         return
             $form
             ->schema([
-                FileUpload::make("image")->image()->label("Post cover image")->columnSpanFull(),
+                FileUpload::make("image")->label("Post cover image")->columnSpanFull(),
                 TextInput::make("title")
                     ->reactive()
                     ->afterStateUpdated(
@@ -57,8 +57,8 @@ class PostResource extends Resource
                 Toggle::make("is_published")->default(false)->required(),
 
                 /*TODO: Work on the category 1 - many morph relationship */
-                Select::make("category")->relationship("category", "name")->searchable(),
-                MultiSelect::make("tag")->label("Tags")->searchable()->relationship("tags", "name")->preload()
+                Select::make("category_id")->relationship("category", "name")->searchable()->preload(),
+                Select::make("tag")->multiple()->label("Tags")->searchable()->relationship("tags", "name")->preload()
             ]);
     }
 
@@ -97,12 +97,12 @@ class PostResource extends Resource
         ];
     }
 
-public static function getWidgets(): array
-{
-    return [
-        PostResource\Widgets\PublishedPostsWidget::class,
-    ];
-}
+    public static function getWidgets(): array
+    {
+        return [
+            PostResource\Widgets\PublishedPostsWidget::class,
+        ];
+    }
 
     public static function getPages(): array
     {
