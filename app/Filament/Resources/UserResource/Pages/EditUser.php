@@ -15,43 +15,15 @@ class EditUser extends EditRecord
 {
     protected static string $resource = UserResource::class;
 
-    protected function mutateFormDataBeforeSave(array $data): array
-    {
-        $data['role_id'] = (int) $data['role_id'];
-        // dd($data);
-        return $data;
-    }
-
-    // protected function beforeFill() {
-    //     $record_id = $this->record['original'];
-    //     dd($this->record);
+    // protected function mutateFormDataBeforeSave(array $data): array
+    // {
+    //     // do something
     // }
+
 
     protected function afterSave(): void
     {
-        $role_id = (int) $this->data['role_id'];
-        $user_id = $this->data['id']; // alias for model id
-        $user = User::find($user_id);
-        $result = DB::table('model_has_roles')->where('model_id', $user_id)->first();
-        $table = 'model_has_roles';
-        $data = [
-                    'role_id' => $role_id,
-                    'model_type' => "\App\Models\User",
-                    'model_id' => $user_id
-                ];
-
-        if($result)
-        {
-            DB::table($table)
-                ->where('model_id', $user_id)
-                ->where('role_id', $role_id) 
-                ->update($data);
-        }else {
-            DB::table($table)->insert($data);;
-        }
-
-        $user->role_id = $role_id;
-        $user->save();
+        // do something
     }
 
     protected function getActions(): array

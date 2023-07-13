@@ -15,6 +15,27 @@ Laravel filament dashboard template application for all dashboard management.
 9. Contact messages (from contact form)
 10. Partners
 
+# Create user
+
+1. Seed the database by running
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+2. Assign super admin rights to a user
+
+```bash
+php artisan shield:super-admin
+```
+
+3. Select with user id from the list of users
+4. Generate permission values using
+
+```bash
+php artisan shield:generate
+```
+
 ### Nice to have packages for filament
 
 -   [ ] Icon picker package [Filament icon picker](https://filamentphp.com/plugins/icon-picker)
