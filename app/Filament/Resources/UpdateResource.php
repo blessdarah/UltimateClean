@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UpdateResource\Pages;
 use App\Models\Update;
 use Closure;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Form;
@@ -14,7 +13,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
-use stdClass;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class UpdateResource extends Resource
 {
@@ -39,7 +38,7 @@ class UpdateResource extends Resource
                     )->required(),
                 TextInput::make("slug")->disabled(),
                 Textarea::make("description"),
-                RichEditor::make("detail")->required(),
+                TinyEditor::make("detail")->required(),
             ]);
     }
 

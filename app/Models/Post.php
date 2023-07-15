@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["user_id", "title", "image", "slug", "summary", "detail", "is_published"];
+    protected $fillable = ["user_id", "title", "image", "slug", "summary", "detail", "is_published", "category_id"];
 
     public function user(): BelongsTo
     {
@@ -25,7 +23,7 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function tags()
+    public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, "taggable");
     }

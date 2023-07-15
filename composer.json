@@ -17,6 +17,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "mohamedsabil83/filament-forms-tinyeditor": "^1.7",
         "psr/simple-cache": "^2.0",
         "pxlrbt/filament-excel": "^1.1"
     },

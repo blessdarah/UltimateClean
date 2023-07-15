@@ -15,6 +15,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use stdClass;
 
 class EventResource extends Resource
@@ -40,7 +41,7 @@ class EventResource extends Resource
                     )->required(),
                 TextInput::make("slug")->disabled(),
                 Textarea::make("description"),
-                RichEditor::make("detail"),
+                TinyEditor::make("detail")->columnSpanFull(),
                 DatePicker::make("start_date")->label("Start date"),
                 DatePicker::make("end_date")->label("End date"),
             ]);

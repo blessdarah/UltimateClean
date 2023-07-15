@@ -16,6 +16,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use stdClass;
 
 class ServiceResource extends Resource
@@ -40,11 +41,10 @@ class ServiceResource extends Resource
                         }
                     )->required(),
                 TextInput::make("slug")->disabled(),
-                FileUpload::make("image")->image()->label("Service image"),
+                FileUpload::make("image")->label("Service image"),
                 Textarea::make("summary")->required(),
-                RichEditor::make("description")->required()->columnSpanFull(),
-                Select::make("category_id")->relationship("category", "name")
-                ->preload()->searchable()
+                TinyEditor::make("description")->required()->columnSpanFull(),
+                Select::make("category_id")->relationship("category", "name")->preload()->searchable()
             ]);
     }
 
