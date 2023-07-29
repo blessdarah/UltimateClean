@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GalleryAlbumResource\Pages;
 use App\Filament\Resources\GalleryAlbumResource\RelationManagers;
 use App\Models\GalleryAlbum;
+use Archilex\StackedImageColumn\Columns\StackedImageColumn;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -18,6 +19,8 @@ class GalleryAlbumResource extends Resource
     protected static ?string $model = GalleryAlbum::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationLabel = 'Gallery';
+    protected static ?string $navigationGroup = 'cms';
 
     public static function form(Form $form): Form
     {
@@ -46,17 +49,22 @@ class GalleryAlbumResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('description'),
-                // Tables\Columns\Image::make('description'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+                StackedImageColumn::make('photos')->separator(','),
+                Tables\Columns\TextColumn::make('description')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('archived')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->sortable()
+                    ->label('Last update')
+                    ->dateTime()
+                    ->since(),
             ])
             ->filters([
                 //
