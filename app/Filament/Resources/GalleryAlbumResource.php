@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GalleryAlbumResource\Pages;
 use App\Filament\Resources\GalleryAlbumResource\RelationManagers;
 use App\Models\GalleryAlbum;
-use Archilex\StackedImageColumn\Columns\StackedImageColumn;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
