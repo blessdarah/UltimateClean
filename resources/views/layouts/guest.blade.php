@@ -41,6 +41,7 @@
                                 </svg>
                             </div>
                         </button>
+                        <x-nav-link>{{ __('Login') }}</x-nav-link>
                     </x-slot>
 
                     <x-slot name="content">

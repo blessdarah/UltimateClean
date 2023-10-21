@@ -20,6 +20,7 @@ return new class () extends Migration {
             $table->boolean('published')->default(false);
             $table->boolean('archived')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

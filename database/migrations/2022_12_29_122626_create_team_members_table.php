@@ -25,6 +25,7 @@ return new class () extends Migration {
             $table->date("dob")->nullable();
             $table->mediumText("about")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

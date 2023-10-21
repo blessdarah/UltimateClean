@@ -51,7 +51,7 @@ class GalleryAlbumResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                StackedImageColumn::make('photos')->separator(','),
+                // StackedImageColumn::make('photos')->separator(','),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable()
                     ->sortable(),

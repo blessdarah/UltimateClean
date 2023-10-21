@@ -6,7 +6,7 @@ use App\Filament\Resources\EventResource\Pages;
 use App\Models\Event;
 use Closure;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Form;
@@ -39,11 +39,12 @@ class EventResource extends Resource
                             $set("slug", Str::slug($state));
                         }
                     )->required(),
-                TextInput::make("slug")->disabled(),
-                Textarea::make("description"),
-                TinyEditor::make("detail")->columnSpanFull(),
-                DatePicker::make("start_date")->label("Start date"),
-                DatePicker::make("end_date")->label("End date"),
+                TextInput::make("slug")->disabled()->helperText("This is auto generated"),
+                FileUpload::make('image')->image()->helperText('Image should not be more that 1Mb in size'),
+                Textarea::make("description")->required(),
+                TinyEditor::make("detail")->columnSpanFull()->required(),
+                DatePicker::make("start_date")->label("Start date")->required(),
+                DatePicker::make("end_date")->label("End date")->required(),
             ]);
     }
 

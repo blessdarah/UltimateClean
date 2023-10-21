@@ -19,6 +19,7 @@ return new class () extends Migration {
             $table->string("description");
             $table->mediumText("detail");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
