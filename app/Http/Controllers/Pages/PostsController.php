@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Pages;
 
+use App\Http\Controllers\Controller;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
-class PagesController extends Controller
+// use Illuminate\Http\Request;
+
+class PostsController extends Controller
 {
     public function index()
     {
@@ -20,8 +22,9 @@ class PagesController extends Controller
             "search_results" => $searchResult
         ]);
     }
-    public function show($slug)
+    public function show(string $slug)
     {
         return view('pages.posts.show', with(["post" => Post::whereSlug($slug)->first()]));
     }
+
 }

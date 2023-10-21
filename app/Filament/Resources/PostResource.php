@@ -6,9 +6,11 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Models\Category;
 use App\Models\Post;
 use Closure;
-use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TrashedFilter;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
@@ -71,6 +73,7 @@ class PostResource extends Resource
             ])
             ->filters([
                 // Filter::make("is_published")->label("Published"),
+                TrashedFilter::make(),
                 SelectFilter::make('Post status')
                 ->options([
                     1 => 'Published',
@@ -80,11 +83,17 @@ class PostResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
+                Tables\Actions\ForceDeleteBulkAction::make(),
+                Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\DeleteBulkAction::make(),
                 ExportBulkAction::make(),
                 FilamentExportBulkAction::make('export')
+
             ]);
     }
 
@@ -93,6 +102,13 @@ class PostResource extends Resource
         return [
             //
         ];
+    }
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
     }
 
     public static function getWidgets(): array
