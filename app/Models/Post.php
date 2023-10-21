@@ -15,6 +15,11 @@ class Post extends Model
 
     protected $fillable = ["user_id", "title", "image", "slug", "summary", "detail", "is_published", "category_id"];
 
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
