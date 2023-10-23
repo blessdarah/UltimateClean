@@ -11,14 +11,14 @@ class ServiceController extends Controller
     public function index()
     {
         return view('pages.services.index')->with([
-            'services' => Service::published()->get()
+            'services' => Service::all()
         ]);
     }
 
     public function show(string $slug)
     {
         return view('pages.services.show')->with([
-            "service" => Service::where('slug', $slug)->firstOrDefault()
+            "service" => Service::where('slug', $slug)->firstOrFail()
         ]);
     }
 }
