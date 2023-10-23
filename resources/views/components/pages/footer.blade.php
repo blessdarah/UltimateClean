@@ -4,11 +4,14 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-widget">
                         <h4 class="title">Our Services</h4>
-                        <ul>
-                            @foreach ($services as $service)
-                                <li><a href="#0"><i class="fal fa-angle-right "></i> {{ $service->name }}</a></li>
-                            @endforeach
-                        </ul>
+                        @if (count($services))
+                            <ul>
+                                @foreach ($services as $service)
+                                    <li><a href="#0"><i class="fal fa-angle-right "></i> {{ $service->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                 </div>
 
