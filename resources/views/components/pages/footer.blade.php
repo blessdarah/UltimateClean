@@ -4,7 +4,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-widget">
                         <h4 class="title">Our Services</h4>
-                        @if (count($services) > 0)
+                        @if (isset($services))
                             <ul>
                                 @foreach ($services as $service)
                                     <li><a href="{{ route('pages.services.show', $service->slug) }}"><i
