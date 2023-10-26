@@ -1,3 +1,3 @@
 <x-guest-layout>
-    <h3> Posts </h3>
+    <x-pages.page-header title="Upcoming events" currentPage="Events" />
 </x-guest-layout>

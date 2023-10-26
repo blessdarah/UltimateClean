@@ -18,46 +18,23 @@
                 <div class="col-xl-4">
 
                     <div class="sidebar-wrap">
-
                         <div class="widget mb-40">
-
                             <div class="widget-title-box mb-35">
-
                                 <h3 class="widget-title">Categories</h3>
-
                             </div>
-
                             <ul class="cat">
-
                                 <li>
-
-                                    <a href="#0">Business <span>26</span></a>
-
+                                    <a href="{{ route('pages.services') }}">All categories</a>
                                 </li>
-
-                                <li>
-
-                                    <a href="#0">Consultant <span>30</span></a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#0">Creative <span>71</span></a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#0">UI/UX <span>56</span></a>
-
-                                </li>
-
-                                <li>
-
-                                    <a href="#0">Technology <span>60</span></a>
-
-                                </li>
+                                @foreach ($categories as $category)
+                                    @if ($category->posts->count() > 0)
+                                        <li>
+                                            <a href="{{ route('pages.services', ['category' => $category->name]) }}">{{ $category->name }}
+                                                <span>{{ $category->posts->count() }}</span>
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>

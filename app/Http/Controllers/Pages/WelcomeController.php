@@ -12,8 +12,8 @@ class WelcomeController extends Controller
     public function __invoke()
     {
         return view('welcome')->with([
-            'services' => Service::take(6),
-            'posts' => Post::take(3),
+            'services' => Service::take(6)->get(),
+            'posts' => Post::latest()->take(3)->get(),
         ]);
     }
 }

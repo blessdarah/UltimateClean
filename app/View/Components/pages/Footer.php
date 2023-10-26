@@ -25,7 +25,7 @@ class Footer extends Component
     public function render()
     {
         return view('components.pages.footer')->with([
-            "services" => Service::all()
+            "services" => Service::latest()->take(4)->get()
         ]);
     }
 }

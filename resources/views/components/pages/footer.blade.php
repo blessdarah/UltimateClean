@@ -6,12 +6,13 @@
                         <h4 class="title">Our Services</h4>
                         {{-- @if ($services) --}}
                         <ul>
-                            {{-- @foreach ($services as $service) --}}
-                            <li><a href="#0"><i class="fal fa-angle-right "></i> Service 1</a></li>
-                            <li><a href="#0"><i class="fal fa-angle-right "></i> Service 2</a></li>
-                            <li><a href="#0"><i class="fal fa-angle-right "></i> Service 3</a></li>
-                            <li><a href="#0"><i class="fal fa-angle-right "></i> Service 4</a></li>
-                            {{-- @endforeach --}}
+                            @foreach ($services as $service)
+                                <li><a href="{{ route('pages.services.show', $service->slug) }}"><i
+                                            class="fal fa-angle-right "></i> {{ $service->name }}</a></li>
+                                {{-- <li><a href="#0"><i class="fal fa-angle-right "></i> Service 2</a></li> --}}
+                                {{-- <li><a href="#0"><i class="fal fa-angle-right "></i> Service 3</a></li> --}}
+                                {{-- <li><a href="#0"><i class="fal fa-angle-right "></i> Service 4</a></li> --}}
+                            @endforeach
                         </ul>
                         {{-- @endif --}}
                     </div>

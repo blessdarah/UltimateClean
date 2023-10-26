@@ -445,115 +445,99 @@
 
     {{-- How it works --}}
     <section class="process-area process-area-2 process-area-3 bg-3 pt-120 pb-120">
-
         <div class="container">
-
             <div class="row justify-content-center">
-
                 <div class="col-xl-4 text-center">
-
                     <div class="section-heading section-heading-2 white mb-70">
-
                         <h5 class="sub-title mb-22">Process</h5>
-
                         <h2 class="section-title">How It Works</h2>
-
                     </div>
-
                 </div>
-
             </div>
-
             <div class="row mt-none-80 mmt-none-30">
-
                 <div class="col-xl-4 col-lg-6 col-md-12 mt-80 mmt-30 col-md-6 text-center">
-
                     <div class="single-process-box single-process-box-2 single-process-box-3 active">
-
                         <span class="count-big">01</span>
-
                         <a href="#0" class="inline-btn">Get In Touch <i class="fal fa-arrow-right"></i></a>
-
                         <div class="process-box-content mt-30">
-
-                            <h2 class="process-box-title">Account &amp; Check In</h2>
-
-                            <p>We provide janitorial and specialized cleaning services for all types and
-
-                                sizes of complexes.</p>
-
+                            <p>We provide janitorial and specialized cleaning services for all types and sizes of
                         </div>
-
                         <div class="process-box-icon">
 
                             <img src="assets/images/icons/hiw-icon-1.png" alt="">
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-xl-4 col-lg-6 col-md-12 mt-80 mmt-30 text-center">
-
                     <div class="single-process-box single-process-box-2 single-process-box-3 yellow mt-50 mmt-0">
-
                         <span class="count-big">02</span>
-
                         <a href="#0" class="inline-btn">Contact Now <i class="fal fa-arrow-right"></i></a>
-
                         <div class="process-box-content mt-30">
-
                             <h2 class="process-box-title">Choose Category</h2>
-
-                            <p>We provide janitorial and specialized cleaning services for all types and
-
-                                sizes of complexes.</p>
-
+                            <p>We provide janitorial and specialized cleaning services for all types and sizes of
+                                complexes.</p>
                         </div>
-
                         <div class="process-box-icon">
-
                             <img src="assets/images/icons/hiw-icon-2.png" alt="">
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-xl-4 col-lg-6 col-md-12 mt-80 mmt-30 text-center">
-
                     <div class="single-process-box single-process-box-2 single-process-box-3 blue mt-50 mmt-0">
-
                         <span class="count-big">03</span>
-
                         <a href="#0" class="inline-btn">Get Support <i class="fal fa-arrow-right"></i></a>
-
                         <div class="process-box-content mt-30">
-
                             <h2 class="process-box-title">Get Clean Property</h2>
-
                             <p>We provide janitorial and specialized cleaning services for all types and
-
                                 sizes of complexes.</p>
-
                         </div>
-
                         <div class="process-box-icon">
-
                             <img src="assets/images/icons/hiw-icon-3.png" alt="">
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
+    </section>
 
+    {{-- Blog section --}}
+    <section class="news-area pt-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 text-center">
+                    <div class="section-heading section-heading-2 mb-70">
+                        <h5 class="sub-title mb-22">Blog</h5>
+                        <h2 class="section-title">News Feeds</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-none-30">
+                @foreach ($posts as $post)
+                    <div class="col-xl-4 col-lg-6">
+                        <article class="postbox post format-image mt-30">
+                            <div class="postbox-thumb">
+                                <a href="{{ route('pages.blog.show', $post->slug) }}">
+                                    <img src="{{ asset($post->image) }}" alt="blog image">
+                                </a>
+                            </div>
+                            <div class="postbox-text">
+                                <div class="post-meta mb-10">
+                                    <a href="#0"><i class="fal fa-user"></i> By Admin </a>
+                                    <a href="#0"><i class="fal fa-calendar-alt"></i>
+                                        {{ $post->created_at->format('d M, Y') }}</a>
+                                </div>
+                                <h4 class="blog-title">
+                                    <a href="{{ route('pages.blog.show', $post->slug) }}">{{ $post->title }}</a>
+                                </h4>
+                                <div class="post-text">
+                                    <p>{{ $post->summary }}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </section>
 
 </x-guest-layout>

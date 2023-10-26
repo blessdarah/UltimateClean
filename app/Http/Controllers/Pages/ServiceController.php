@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class ServiceController extends Controller
     public function show(string $slug)
     {
         return view('pages.services.show')->with([
-            "service" => Service::where('slug', $slug)->firstOrFail()
+            "service" => Service::where('slug', $slug)->firstOrFail(),
+            "categories" => Category::orderBy('name', 'desc')->get()
         ]);
     }
 }
