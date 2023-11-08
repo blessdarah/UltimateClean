@@ -1,156 +1,54 @@
 <x-guest-layout>
     <x-pages.page-header currentPage="About us" title="About us" />
 
-    <section class="shop-banner-area pt-120 pb-90">
+    <section class="get-quote-area pt-120 pb-170">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-lg-6">
-                    <div class="shop-thumb-tab mb-30">
-                        <ul class="nav" id="myTab2" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                    role="tab" aria-selected="true"><img src="assets/images/shop/details/thumb1.jpg"
-                                        alt=""> </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-selected="false"><img src="assets/images/shop/details/thumb2.jpg"
-                                        alt=""></a>
-                            </li>
-
-                            <li class="nav-item">
-
-                                <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile1" role="tab"
-                                    aria-selected="false"><img src="assets/images/shop/details/thumb3.jpg"
-                                        alt=""></a>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="product-details-img mb-30">
-
-                        <div class="tab-content" id="myTabContent2">
-
-                            <div class="tab-pane fade show active" id="home" role="tabpanel">
-
-                                <div class="product-large-img">
-
-                                    <img src="assets/images/shop/details/large1.jpg" alt="">
-
-                                </div>
-
+                <div class="col-xl-6 col-lg-6">
+                    <div class="get-quote-left-side">
+                        <div class="get-quote-thumb-big" data-tilt="" data-tilt-perspective="3000"
+                            style="will-change: transform; transform: perspective(3000px) rotateX(0deg) rotateY(0deg);">
+                            <img src="assets/images/bg/get-quote-1-big.jpg" alt="">
+                            <div class="get-quote-icon-box">
+                                <img src="assets/images/icons/section-icon-4.png" alt="">
                             </div>
-
-                            <div class="tab-pane fade" id="profile" role="tabpanel">
-
-                                <div class="product-large-img">
-
-                                    <img src="assets/images/shop/details/large2.jpg" alt="">
-
-                                </div>
-
-                            </div>
-
-                            <div class="tab-pane fade" id="profile1" role="tabpanel">
-
-                                <div class="product-large-img">
-
-                                    <img src="assets/images/shop/details/large3.jpg" alt="">
-
-                                </div>
-
-                            </div>
-
                         </div>
-
+                        <div class="get-quote-thumb-small" data-tilt="" data-tilt-perspective="3000"
+                            style="will-change: transform; transform: perspective(3000px) rotateX(0deg) rotateY(0deg);">
+                            <img src="assets/images/bg/get-quote-1-small.jpg" alt="">
+                        </div>
                     </div>
-
                 </div>
-
-                <div class="col-xl-5 col-lg-6">
-
-                    <div class="product-details mb-30">
-
-                        <div class="product-details-title">
-
-                            <p>Workstead</p>
-
-                            <h1>Helios Piranho Lamp</h1>
-
-                            <div class="price details-price pb-30 mb-20">
-
-                                <span>$700.00</span>
-
-                                <span class="old-price">$820.00</span>
-
+                <div class="col-xl-6 col-lg-6">
+                    <div class="get-quote-right-side pl-30">
+                        <div class="section-heading mb-40">
+                            <div class="section-heading-top mb-20">
+                                <img src="assets/images/icons/section-icon-3.png" alt="">
+                                <h5 class="sub-title"><span>03</span> Get A Quote</h5>
                             </div>
-
+                            <h2 class="section-title">Get Every Answers
+                                From Here</h2>
+                            <div class="section-content">
+                                <p>We provide janitorial and specialized cleaning services for
+                                    all types and sizes of complexes</p>
+                            </div>
                         </div>
-
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page
-
-                            when looking at its
-
-                            layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-
-                            letters, as opposed to
-
-                            using 'Content here, content here', making it look like readable English.</p>
-
-                        <div class="product-cat mt-30 mb-30">
-
-                            <span>Category: </span>
-
-                            <a href="#0">furniture,</a>
-
-                            <a href="#0">decor</a>
-
+                        <p>We provide janitorial and specialized cleaning services for all types and sizes of complexes
+                            – from small to large
+                            offices and commercial centers to industrial, warehouse, and retail locations. Our client
+                            base is comprised of both
+                            privately-owned companies and public organizations (e.g., municipalities, police
+                            departments, libraries), ranging from
+                            facilities of a few hundred square feet to hundreds of thousands of square feet.</p>
+                        <div class="get-quote-btns mt-40">
+                            <a href="tel:9878768768765" class="site-btn">+987 876 876 87 65 <span class="icon"><i
+                                        class="fal fa-phone"></i></span></a>
+                            <a href="#0" class="site-btn transparent">Make Call &amp; Get Information</a>
                         </div>
-
-                        <div class="product-social mb-45">
-
-                            <a href="#0"><i class="fab fa-facebook-f"></i></a>
-
-                            <a href="#0"><i class="fab fa-twitter"></i></a>
-
-                            <a href="#0"><i class="fab fa-behance"></i></a>
-
-                            <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-
-                            <a href="#0"><i class="fab fa-youtube"></i></a>
-
-                        </div>
-
-                        <div class="product-details-action">
-
-                            <form action="#">
-
-                                <div class="plus-minus">
-
-                                    <div class="cart-plus-minus"><input type="text" value="1"></div>
-
-                                </div>
-
-                                <button class="site-btn boxed" type="submit">add to cart</button>
-
-                                <button class="action-btn" type="submit"><i class="fas fa-heart"></i></button>
-
-                            </form>
-
-                        </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     {{-- About sections --}}
@@ -167,26 +65,19 @@
                         <ul class="nav text-center justify-content-center pb-30 mb-50" id="myTab" role="tablist">
 
                             <li class="nav-item">
-
                                 <a class="nav-link active" id="desc-tab" data-toggle="tab" href="#id-desc"
-                                    role="tab" aria-controls="home" aria-selected="true">Description </a>
-
+                                    role="tab" aria-controls="home" aria-selected="true">Our mission </a>
                             </li>
 
                             <li class="nav-item">
-
                                 <a class="nav-link" id="id-add-in" data-toggle="tab" href="#id-add" role="tab"
-                                    aria-controls="profile" aria-selected="false">Additional Information</a>
-
+                                    aria-controls="profile" aria-selected="false">Our vision</a>
                             </li>
 
                             <li class="nav-item">
-
                                 <a class="nav-link" id="id-r" data-toggle="tab" href="#id-rev" role="tab"
-                                    aria-controls="profile" aria-selected="false">Reviews(10)</a>
-
+                                    aria-controls="profile" aria-selected="false">Team</a>
                             </li>
-
                         </ul>
 
                     </div>

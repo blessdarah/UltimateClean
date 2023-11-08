@@ -1,59 +1,21 @@
     <footer class="site-footer bg-4 site-footer-2 pt-100">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-
                     <div class="footer-widget">
-
                         <h4 class="title">Our Services</h4>
-
                         <ul>
-
                             <li><a href="#0"><i class="fal fa-angle-right "></i> Maid Services</a></li>
-
                             <li><a href="#0"><i class="fal fa-angle-right "></i> Window Cleaning</a></li>
-
                             <li><a href="#0"><i class="fal fa-angle-right "></i> Domestic Cleaning</a></li>
-
                             <li><a href="#0"><i class="fal fa-angle-right "></i> House Cleaning</a></li>
-
                             <li><a href="#0"><i class="fal fa-angle-right "></i> Professional Carwashing</a></li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
                 <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-
-                    <div class="footer-widget service-menu">
-
-                        <h4 class="title">Our Services</h4>
-
-                        <ul>
-
-                            <li><a href="about.html"><i class="fal fa-angle-right "></i> About Company</a></li>
-
-                            <li><a href="service.html"><i class="fal fa-angle-right "></i> Services</a></li>
-
-                            <li><a href="pricing.html"><i class="fal fa-angle-right "></i> Pricing</a></li>
-
-                            <li><a href="#0"><i class="fal fa-angle-right "></i> Calculator</a></li>
-
-                            <li><a href="blog.html"><i class="fal fa-angle-right "></i> Our Blog</a></li>
-
-                        </ul>
-
-                    </div>
-
                 </div>
-
                 <div class="col-xl-6 offset-xl-1 col-lg-6">
-
                     <div class="footer-widget footer-contact-widget">
 
                         <h4 class="title">Contact Us</h4>
