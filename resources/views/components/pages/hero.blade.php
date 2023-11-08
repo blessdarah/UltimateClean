@@ -20,8 +20,9 @@
                     <div class="col-xl-3 col-lg-2">
                         <div class="header-info-left-wrap">
                             <div class="header-info-left">
-                                <a href="index.html" class="site-logo">
-                                    <img src="assets/images/logo/logo-white.png" alt="UltimateClean">
+                                <a href="{{ route('welcome') }}" class="site-logo">
+                                    <img style="max-width: 100%; height: 5rem;"
+                                        src="{{ asset('assets/images/logo/logo.png') }}" alt="UltimateClean">
                                 </a>
                                 {{-- <a href="#0" class="site-btn">Appointment <span class="icon"><i --}}
                                 {{--             class="fal fa-calendar-alt"></i></span></a> --}}

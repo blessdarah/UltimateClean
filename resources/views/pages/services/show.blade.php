@@ -6,7 +6,7 @@
                 <div class="col-xl-8">
                     <div class="service-details-wrap">
                         <div class="service-details-thumb">
-                            <img src="assets/images/service/service-details-1.jpg" alt="">
+                            <img src="{{ asset('/storage/' . $service->image) }}" alt="Service cover image">
                         </div>
                         <h3 class="blog-title">{{ $service->name }}</h3>
                         <div class="service-content-inner mt-40">
@@ -16,7 +16,6 @@
                 </div>
 
                 <div class="col-xl-4">
-
                     <div class="sidebar-wrap">
                         <div class="widget mb-40">
                             <div class="widget-title-box mb-35">

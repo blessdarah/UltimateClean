@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PagesController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $searchQuery = request()->query('search');
         $searchResult = Post::whereTitle('title', "%{$searchQuery}%")
@@ -17,7 +18,7 @@ class PagesController extends Controller
 
         return view('pages.posts.index')->with([
             "posts" => Post::published()->paginate(4),
-            "search_results" => $searchResult
+            "search_results" => $searchResult,
         ]);
     }
     public function show($slug)
